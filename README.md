@@ -73,10 +73,11 @@ Architecture :
 
 Nous avons composé notre projets sur une architecture MVC 
 
-Component : Composants du jeu 
-Figures : Tetriminos
-network : Jeu en réseau : Server / Client 
-views (bibliothèque swing) : Contenant les différentes vues à afficher
+Packages :
+- Component : Composants du jeu
+- Figures : Tetriminos
+- network : Jeu en réseau : Server / Client 
+- views (bibliothèque swing) : Contenant les différentes vues à afficher
 
 Des tests ont été réalisés : Junit(Unitaire), CodePro(Audit, TestCases) 
 
