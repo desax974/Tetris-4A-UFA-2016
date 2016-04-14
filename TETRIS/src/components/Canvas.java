@@ -3,7 +3,10 @@ package components;
 import java.awt.*;
 import java.awt.image.ImageObserver;
 import java.net.*;
+
 import javax.swing.*;
+
+import data.dataClass;
 
 public class Canvas extends JComponent implements Runnable {
 	private Image[] image;
@@ -22,55 +25,44 @@ public class Canvas extends JComponent implements Runnable {
 		this.MT = new MediaTracker((Component) (this));
 		try {			this.image[0] = Toolkit
 					.getDefaultToolkit()
-					.getImage(
-							new URL(
-									"http://imageshack.com/a/img924/2900/G5jcvf.png"));
+					.getImage( dataClass.class.getResource("tetris.png").getPath()
+							);
 			this.image[1] = Toolkit
 					.getDefaultToolkit()
 					.getImage(
-							new URL(
-									"http://imageshack.com/a/img923/3537/OU1vC9.png"));
+							dataClass.class.getResource("tetris.png").getPath());
 			this.image[2] = Toolkit
 					.getDefaultToolkit()
-					.getImage(
-							new URL(
-									"http://imageshack.com/a/img923/3537/OU1vC9.png"));
+					.getImage(dataClass.class.getResource("tetris.png").getPath());
 			this.image[3] = Toolkit
 					.getDefaultToolkit()
 					.getImage(
-							new URL(
-									"http://imageshack.com/a/img923/3537/OU1vC9.png"));
+							dataClass.class.getResource("tetris.png").getPath());
 			this.image[4] = Toolkit
 					.getDefaultToolkit()
 					.getImage(
-							new URL(
-									"http://imageshack.com/a/img923/3537/OU1vC9.png"));
+							dataClass.class.getResource("tetris.png").getPath());
 			this.image[5] = Toolkit
 					.getDefaultToolkit()
 					.getImage(
-							new URL(
-									"http://imageshack.com/a/img923/3537/OU1vC9.png"));
+							dataClass.class.getResource("tetris.png").getPath());
 			this.image[6] = Toolkit
 					.getDefaultToolkit()
 					.getImage(
-							new URL(
-									"http://imageshack.com/a/img923/3537/OU1vC9.png"));
+							dataClass.class.getResource("tetris.png").getPath());
 			this.image[7] = Toolkit
 					.getDefaultToolkit()
 					.getImage(
-							new URL(
-									"http://imageshack.com/a/img923/3537/OU1vC9.png"));
+							dataClass.class.getResource("tetris.png").getPath());
 			this.image[8] = Toolkit
 					.getDefaultToolkit()
 					.getImage(
-							new URL(
-									"http://imageshack.com/a/img923/3537/OU1vC9.png"));
+							dataClass.class.getResource("tetris.png").getPath());
 			this.image[9] = Toolkit
 					.getDefaultToolkit()
 					.getImage(
-							new URL(
-									"http://imageshack.com/a/img923/3537/OU1vC9.png"));
-		} catch (MalformedURLException v0) {
+							dataClass.class.getResource("tetris.png").getPath());
+		} catch (Exception v0) {
 		}
 		this.MT.addImage(this.image[0], 0);
 		this.MT.addImage(this.image[1], 1);

@@ -1,6 +1,12 @@
 package components;
 
-public class Matrix {
+import java.io.Serializable;
+
+public class Matrix implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 6944888324073460860L;
 	int size;
 	private int[][] matrice;
 

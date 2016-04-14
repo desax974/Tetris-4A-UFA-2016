@@ -24,12 +24,6 @@ public class MenuBar extends JMenuBar implements ActionListener {
 	private JMenuItem itemEditer;
 	private JMenuItem itemAPropos;
 	private JMenuItem itemQuitter;
-	private JSeparator separator1;
-	private JSeparator separator2;
-	private JSeparator separator3;
-	private JSeparator separator4;
-	private JSeparator separator6;
-	private JSeparator separator7;
 	private JCheckBoxMenuItem checkBoxSon;
 	private JCheckBoxMenuItem checkBoxVoirPiece;
 	private JRadioButtonMenuItem radioButton1Player;
@@ -52,7 +46,7 @@ public class MenuBar extends JMenuBar implements ActionListener {
 	private JRadioButtonMenuItem radioButtonObstacle5;
 	private JRadioButtonMenuItem radioButtonObhstacle6;
 	private JRadioButtonMenuItem radioButtonObstacle7;
-	private JPanel about;
+	private JPanel about = null;
 
 	public MenuBar(Tetris tetris) {
 		obstacle = 0;
@@ -173,12 +167,12 @@ public class MenuBar extends JMenuBar implements ActionListener {
 			new HighScoreFrame();
 		} else if (commande.equals("Editer Nouvelle Pi\u00e8ce")) {
 			new PieceEdit(5, jeu);
-		} else if (commande.equals("A Propos...")) {
+		} else if (commande.equals("A Propos")) {
 			doAbout();
 		}
 	}
     private void doAbout() {
-        if(about == null) setAboutPanel();
+        setAboutPanel();
         JOptionPane.showMessageDialog(this,about,"ABOUT", 
                 JOptionPane.PLAIN_MESSAGE);
     }
@@ -194,14 +188,12 @@ public class MenuBar extends JMenuBar implements ActionListener {
     }
     
 	public void menuAbout() {
-		this.menuAbout = new JMenu("A propos");
+		this.menuAbout = new JMenu("A Propos");
 		this.menuAbout.setMnemonic('a');
 		this.menuAbout.setHorizontalAlignment(0);
 		this.menuAbout.setHorizontalTextPosition(0);
-		this.itemAPropos = new JMenuItem("A Propos...");
-		this.separator1 = new JSeparator();
+		this.itemAPropos = new JMenuItem("A Propos");
 		this.menuAbout.add(this.itemAPropos);
-		this.menuAbout.add(this.separator1);
 		this.itemAPropos.addActionListener(this);
 	}
 
@@ -212,21 +204,19 @@ public class MenuBar extends JMenuBar implements ActionListener {
 		this.menuJeu.setHorizontalTextPosition(0);
 		this.itemNouvelle = new JMenuItem("Nouvelle");
 		this.itemNouvelle.setMnemonic('n');
-		this.separator2 = new JSeparator();
 		this.itemPause = new JMenuItem("Pause");
 		this.itemPause.setMnemonic('p');
 		this.itemDemarrer = new JMenuItem("Redemarrer");
 		this.itemDemarrer.setMnemonic('r');
 		this.itemDemarrer.setEnabled(true);
 		this.itemDemarrer.setEnabled(false);
-		this.separator3 = new JSeparator();
 		this.itemQuitter = new JMenuItem("Quitter");
 		this.itemQuitter.setMnemonic('q');
 		this.menuJeu.add(this.itemNouvelle);
-		this.menuJeu.add(this.separator2);
+		this.menuJeu.add(new JSeparator());
 		this.menuJeu.add(this.itemPause);
 		this.menuJeu.add(this.itemDemarrer);
-		this.menuJeu.add(this.separator3);
+		this.menuJeu.add(new JSeparator());
 		this.menuJeu.add(this.itemQuitter);
 		this.itemNouvelle.addActionListener(this);
 		this.itemPause.addActionListener(this);
@@ -243,26 +233,23 @@ public class MenuBar extends JMenuBar implements ActionListener {
 		this.checkBoxVoirPiece = new JCheckBoxMenuItem(
 				"Aper\u00e7u de la pi\u00e8ce");
 		this.checkBoxVoirPiece.setSelected(true);
-		this.separator4 = new JSeparator();
 		this.menuOptionsNiveau();
 		this.menuOptionsHandicap();
-		this.separator6 = new JSeparator();
 		this.radioButton1Player = new JRadioButtonMenuItem("1 Joueur");
 		this.radioButton1Player.addActionListener(this);
 		this.radioButton1Player.setSelected(true);
 		this.radioButton2Player = new JRadioButtonMenuItem("2 Joueurs");
 		this.radioButton2Player.addActionListener(this);
-		this.separator7 = new JSeparator();
 		this.itemBestScore = new JMenuItem("Meilleurs Scores");
 		this.menuOptions.add(this.checkBoxSon);
 		this.menuOptions.add(this.checkBoxVoirPiece);
-		this.menuOptions.add(this.separator4);
+		this.menuOptions.add(new JSeparator());
 		this.menuOptions.add(this.menuOptionsNiveau);
 		this.menuOptions.add(this.menuOptionsObstacle);
-		this.menuOptions.add(this.separator6);
+		this.menuOptions.add(new JSeparator());
 		this.menuOptions.add(this.radioButton1Player);
 		this.menuOptions.add(this.radioButton2Player);
-		this.menuOptions.add(this.separator7);
+		this.menuOptions.add(new JSeparator());
 		this.menuOptions.add(this.itemBestScore);
 		this.checkBoxVoirPiece.addActionListener(this);
 		this.itemBestScore.addActionListener(this);

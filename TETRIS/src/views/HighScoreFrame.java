@@ -7,9 +7,12 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.util.StringTokenizer;
 
@@ -25,6 +28,8 @@ import javax.swing.table.AbstractTableModel;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.TableColumn;
 import javax.swing.table.TableModel;
+
+import data.dataClass;
 
 public class HighScoreFrame implements ActionListener {
 	/** Frame d'affichage. */
@@ -376,21 +381,19 @@ public class HighScoreFrame implements ActionListener {
 	 * Initialisation du tableau de la table a partir d'un fichier.
 	 */
 	public void initData() {
-		FileReader fic = null; // Le fichier de lecture.
+		InputStream fic = null; // Le fichier de lecture.
 		String sentence; // La phrase lue dans le fichier.
 		BufferedReader br = null;
-		@SuppressWarnings("unused")
-		String f = null;
 
 		try { // Lecture du fichier.
-			fic = new FileReader(nomFichier);
-		} catch (IOException e) {
+			fic = dataClass.class.getResourceAsStream(nomFichier);
+		} catch (Exception e) {
 			try {
-				FileWriter fw = new FileWriter(nomFichier);
-				PrintWriter pw = new PrintWriter(fw);
+			               
+				PrintWriter pw = new PrintWriter(new File(dataClass.class.getResource(nomFichier).getPath()));
 				pw.print("");
 				pw.close();
-				fic = new FileReader(nomFichier);
+				fic = dataClass.class.getResourceAsStream(nomFichier);
 			} catch (IOException error) {
 				System.err.println("Erreur d'ouverture de fichier. ");
 			}
@@ -398,7 +401,7 @@ public class HighScoreFrame implements ActionListener {
 
 		try {
 			/* On bufferise le flux de lecture. */
-			br = new BufferedReader(fic);
+			br = new BufferedReader(new InputStreamReader(fic));
 			// On essaie de lire une premiere ligne. */
 			sentence = br.readLine();
 		} catch (IOException e) {
@@ -426,7 +429,7 @@ public class HighScoreFrame implements ActionListener {
 			br.close();
 		} catch (IOException e) {
 			System.out
-					.println("Impossible de fermer le fichier est déjà ouvert");
+					.println("Impossible de fermer le fichier est dï¿½jï¿½ ouvert");
 		}
 	}
 

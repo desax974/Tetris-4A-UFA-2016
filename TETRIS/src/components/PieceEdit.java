@@ -2,8 +2,6 @@ package components;
 
 import javax.swing.*;
 
-import views.LoadFrame;
-import views.SaveFrame;
 
 import java.awt.BorderLayout;
 import java.awt.Component;
@@ -13,6 +11,12 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 
 public class PieceEdit extends JPanel implements MouseListener, ActionListener {
 	private Matrix mat;
@@ -96,10 +100,23 @@ public class PieceEdit extends JPanel implements MouseListener, ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		File file;
 		if (e.getActionCommand().equals("Charger")) {
-			new LoadFrame("", this);
+			JFileChooser fileChooser = new JFileChooser();
+			if (fileChooser.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
+			  file = fileChooser.getSelectedFile();
+			  // load from file
+				if(chargerMat(file)) JOptionPane.showMessageDialog(this, "Le fichier a ete charge avec succes", "Info", JOptionPane.ERROR_MESSAGE);
+
+			}
 		} else if (e.getActionCommand().equals("Sauver")) {
-			new SaveFrame("", this.mat);
+			JFileChooser fileChooser = new JFileChooser();
+			if (fileChooser.showSaveDialog(this) == JFileChooser.APPROVE_OPTION) {
+			  file = fileChooser.getSelectedFile();
+			  // load from file
+				this.sauverMat(file, this.mat);
+
+			}
 		} else if (e.getActionCommand().equals("Annuler")) {
 			frame.dispose();
 		} else if (e.getActionCommand().equals("Ajouter au jeu")) {
@@ -109,7 +126,63 @@ public class PieceEdit extends JPanel implements MouseListener, ActionListener {
 			this.setSizeMat(listTailles.getSelectedIndex() + 1);
 		}
 	}
+	public void sauverMat(File nomFic, Matrix mat) {
+		FileOutputStream fic;
+		ObjectOutputStream out;
 
+		try {
+			fic = new FileOutputStream(nomFic.getPath());
+		} catch (IOException v0) {
+
+			JOptionPane.showMessageDialog(this, "Impossible d'ouvrir le fichier en \u00e9criture "
+					+ nomFic + " !", "Error", JOptionPane.ERROR_MESSAGE);
+			return;
+		}
+		try {
+			out = new ObjectOutputStream(fic);
+		} catch (IOException v1) {
+			System.out.println("Impossible d'ouvrir le flux !");
+			return;
+		}
+		try {
+			out.writeObject(mat);
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("Impossible d'ecrire dans le flux !");
+		}
+		try {
+			out.close();
+		} catch (IOException v3) {
+			System.out.println("Impossible de fermer le flux !");
+			return;
+		}
+	}
+	public boolean chargerMat(File nomFic) {
+		FileInputStream fic;
+		ObjectInputStream in;
+		try {
+			fic = new FileInputStream(nomFic);
+		} catch (IOException v0) {
+			return false;
+		}
+		try {
+			in = new ObjectInputStream(fic);
+		} catch (IOException v1) {
+			return false;
+		}
+		try {
+			this.mat = (Matrix) in.readObject();
+		} catch (Exception v2) {
+			return false;
+		}
+		try {
+			in.close();
+		} catch (IOException v3) {
+			return false;
+		}
+		return true;
+	}
+	
 	@Override
 	public void mouseClicked(MouseEvent e) {
 	}
