@@ -1,6 +1,6 @@
 PROJET TETRIS 
 =============
-![alt tag](http://fr.ubergizmo.com/wp-content/uploads/2014/01/tetris-logo.jpg)
+![alt tag](http://imageshack.com/a/img924/7203/qJFuV6.png)
 HAFOUD Mohammed Amine - DESCHASEAUX Ramaye Axel – LOUCARID Nadia (4A-CFA)
 
 Les consignes du jeu : 
