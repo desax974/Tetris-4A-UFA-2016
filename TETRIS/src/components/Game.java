@@ -213,8 +213,8 @@ public class Game {
 		if (this.socket != null) {
 			try {
 				if (this.in.available() > 0) {
-					int handicap = this.in.read();
-					switch (handicap) {
+					int obstacle = this.in.read();
+					switch (obstacle) {
 					case 0: {
 						this.setSocket(null, false);
 						new JFrameMsg("Ev\u00e9nement reseau",
@@ -228,7 +228,7 @@ public class Game {
 						break;
 					}
 					default: {
-						this.setHandicap(handicap);
+						this.setObstacle(obstacle);
 						break;
 					}
 					}
@@ -273,7 +273,7 @@ public class Game {
 		return true;
 	}
 
-	public void setHandicap(int nbRangees) {
+	public void setObstacle(int nbRangees) {
 		int i;
 		int j = 0;
 		while (j <= this.height - 1 - nbRangees) {

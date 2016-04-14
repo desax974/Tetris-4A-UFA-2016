@@ -8,13 +8,13 @@ import views.ConnectFrame;
 import views.HighScoreFrame;
 
 public class MenuBar extends JMenuBar implements ActionListener {
-	private static int handicap;
+	private static int obstacle;
 	private static int niveau;
 	private Tetris tetris;
 	private JMenu menuJeu;
 	private JMenu menuOptions;
 	private JMenu menuOptionsNiveau;
-	private JMenu menuOptionsHandicap;
+	private JMenu menuOptionsObstacle;
 	private JMenu menuEdition;
 	private JMenu menuAbout;
 	private JMenuItem itemNouvelle;
@@ -44,17 +44,17 @@ public class MenuBar extends JMenuBar implements ActionListener {
 	private JRadioButtonMenuItem radioButtonNiveau8;
 	private JRadioButtonMenuItem radioButtonNiveau9;
 	private JRadioButtonMenuItem radioButtonNiveau10;
-	private JRadioButtonMenuItem radioButtonHandicap0;
-	private JRadioButtonMenuItem radioButtonHandicap1;
-	private JRadioButtonMenuItem radioButtonHandicap2;
-	private JRadioButtonMenuItem radioButtonHandicap3;
-	private JRadioButtonMenuItem radioButtonHandicap4;
-	private JRadioButtonMenuItem radioButtonHandicap5;
-	private JRadioButtonMenuItem radioButtonHandicap6;
-	private JRadioButtonMenuItem radioButtonHandicap7;
+	private JRadioButtonMenuItem radioButtonObstacle0;
+	private JRadioButtonMenuItem radioButtonObstacle1;
+	private JRadioButtonMenuItem radioButtonOstacle2;
+	private JRadioButtonMenuItem radioButtonObstacle3;
+	private JRadioButtonMenuItem radioButtonObstacle4;
+	private JRadioButtonMenuItem radioButtonObstacle5;
+	private JRadioButtonMenuItem radioButtonObhstacle6;
+	private JRadioButtonMenuItem radioButtonObstacle7;
 
 	public MenuBar(Tetris tetris) {
-		handicap = 0;
+		obstacle = 0;
 		niveau = 1;
 		this.tetris = tetris;
 		this.menuJeu();
@@ -75,7 +75,7 @@ public class MenuBar extends JMenuBar implements ActionListener {
 		if (commande.equals("Nouvelle")) {
 			this.setEnabledMenuOptions(false);
 			jeu.nouveauJeu();
-			jeu.setHandicap(handicap);
+			jeu.setObstacle(obstacle);
 			jeu.setNiveau(niveau);
 			canvas.repaint();
 		} else if (commande.equals("Pause")) {
@@ -137,28 +137,28 @@ public class MenuBar extends JMenuBar implements ActionListener {
 			jeu.setNiveau(10);
 		} else if (commande.equals("Handicap 0")) {
 			this.resetHandicap();
-			handicap = 0;
+			obstacle = 0;
 		} else if (commande.equals("Handicap 1")) {
 			this.resetHandicap();
-			handicap = 1;
+			obstacle = 1;
 		} else if (commande.equals("Handicap 2")) {
 			this.resetHandicap();
-			handicap = 2;
+			obstacle = 2;
 		} else if (commande.equals("Handicap 3")) {
 			this.resetHandicap();
-			handicap = 3;
+			obstacle = 3;
 		} else if (commande.equals("Handicap 4")) {
 			this.resetHandicap();
-			handicap = 4;
+			obstacle = 4;
 		} else if (commande.equals("Handicap 5")) {
 			this.resetHandicap();
-			handicap = 5;
+			obstacle = 5;
 		} else if (commande.equals("Handicap 6")) {
 			this.resetHandicap();
-			handicap = 6;
+			obstacle = 6;
 		} else if (commande.equals("Handicap 7")) {
 			this.resetHandicap();
-			handicap = 7;
+			obstacle = 7;
 		} else if (commande.equals("1 Joueur")) {
 			this.radioButton1Player.setSelected(true);
 			this.radioButton2Player.setSelected(false);
@@ -241,7 +241,7 @@ public class MenuBar extends JMenuBar implements ActionListener {
 		this.menuOptions.add(this.checkBoxVoirPiece);
 		this.menuOptions.add(this.separator4);
 		this.menuOptions.add(this.menuOptionsNiveau);
-		this.menuOptions.add(this.menuOptionsHandicap);
+		this.menuOptions.add(this.menuOptionsObstacle);
 		this.menuOptions.add(this.separator6);
 		this.menuOptions.add(this.radioButton1Player);
 		this.menuOptions.add(this.radioButton2Player);
@@ -252,33 +252,33 @@ public class MenuBar extends JMenuBar implements ActionListener {
 	}
 
 	public void menuOptionsHandicap() {
-		this.menuOptionsHandicap = new JMenu("Handicap");
-		this.radioButtonHandicap0 = new JRadioButtonMenuItem("Handicap 0");
-		this.radioButtonHandicap1 = new JRadioButtonMenuItem("Handicap 1");
-		this.radioButtonHandicap2 = new JRadioButtonMenuItem("Handicap 2");
-		this.radioButtonHandicap3 = new JRadioButtonMenuItem("Handicap 3");
-		this.radioButtonHandicap4 = new JRadioButtonMenuItem("Handicap 4");
-		this.radioButtonHandicap5 = new JRadioButtonMenuItem("Handicap 5");
-		this.radioButtonHandicap6 = new JRadioButtonMenuItem("Handicap 6");
-		this.radioButtonHandicap7 = new JRadioButtonMenuItem("Handicap 7");
-		this.menuOptionsHandicap.add(this.radioButtonHandicap0);
-		this.menuOptionsHandicap.add(this.radioButtonHandicap1);
-		this.menuOptionsHandicap.add(this.radioButtonHandicap2);
-		this.menuOptionsHandicap.add(this.radioButtonHandicap3);
-		this.menuOptionsHandicap.add(this.radioButtonHandicap4);
-		this.menuOptionsHandicap.add(this.radioButtonHandicap5);
-		this.menuOptionsHandicap.add(this.radioButtonHandicap6);
-		this.menuOptionsHandicap.add(this.radioButtonHandicap7);
-		this.radioButtonHandicap0.addActionListener(this);
-		this.radioButtonHandicap1.addActionListener(this);
-		this.radioButtonHandicap2.addActionListener(this);
-		this.radioButtonHandicap3.addActionListener(this);
-		this.radioButtonHandicap4.addActionListener(this);
-		this.radioButtonHandicap5.addActionListener(this);
-		this.radioButtonHandicap6.addActionListener(this);
-		this.radioButtonHandicap7.addActionListener(this);
-		this.radioButtonHandicap0.setSelected(true);
-		this.menuOptionsHandicap.setEnabled(true);
+		this.menuOptionsObstacle = new JMenu("Obstacle");
+		this.radioButtonObstacle0 = new JRadioButtonMenuItem("Obstacle 0");
+		this.radioButtonObstacle1 = new JRadioButtonMenuItem("Obstacle 1");
+		this.radioButtonOstacle2 = new JRadioButtonMenuItem("Obstacle 2");
+		this.radioButtonObstacle3 = new JRadioButtonMenuItem("Obstacle 3");
+		this.radioButtonObstacle4 = new JRadioButtonMenuItem("Obstacle 4");
+		this.radioButtonObstacle5 = new JRadioButtonMenuItem("Obstacle 5");
+		this.radioButtonObhstacle6 = new JRadioButtonMenuItem("Obstacle 6");
+		this.radioButtonObstacle7 = new JRadioButtonMenuItem("Obstacle 7");
+		this.menuOptionsObstacle.add(this.radioButtonObstacle0);
+		this.menuOptionsObstacle.add(this.radioButtonObstacle1);
+		this.menuOptionsObstacle.add(this.radioButtonOstacle2);
+		this.menuOptionsObstacle.add(this.radioButtonObstacle3);
+		this.menuOptionsObstacle.add(this.radioButtonObstacle4);
+		this.menuOptionsObstacle.add(this.radioButtonObstacle5);
+		this.menuOptionsObstacle.add(this.radioButtonObhstacle6);
+		this.menuOptionsObstacle.add(this.radioButtonObstacle7);
+		this.radioButtonObstacle0.addActionListener(this);
+		this.radioButtonObstacle1.addActionListener(this);
+		this.radioButtonOstacle2.addActionListener(this);
+		this.radioButtonObstacle3.addActionListener(this);
+		this.radioButtonObstacle4.addActionListener(this);
+		this.radioButtonObstacle5.addActionListener(this);
+		this.radioButtonObhstacle6.addActionListener(this);
+		this.radioButtonObstacle7.addActionListener(this);
+		this.radioButtonObstacle0.setSelected(true);
+		this.menuOptionsObstacle.setEnabled(true);
 	}
 
 	public void menuOptionsNiveau() {
@@ -328,37 +328,37 @@ public class MenuBar extends JMenuBar implements ActionListener {
 	}
 
 	public void resetHandicap() {
-		switch (handicap) {
+		switch (obstacle) {
 		case 0: {
-			this.radioButtonHandicap0.setSelected(false);
+			this.radioButtonObstacle0.setSelected(false);
 			break;
 		}
 		case 1: {
-			this.radioButtonHandicap1.setSelected(false);
+			this.radioButtonObstacle1.setSelected(false);
 			break;
 		}
 		case 2: {
-			this.radioButtonHandicap2.setSelected(false);
+			this.radioButtonOstacle2.setSelected(false);
 			break;
 		}
 		case 3: {
-			this.radioButtonHandicap3.setSelected(false);
+			this.radioButtonObstacle3.setSelected(false);
 			break;
 		}
 		case 4: {
-			this.radioButtonHandicap4.setSelected(false);
+			this.radioButtonObstacle4.setSelected(false);
 			break;
 		}
 		case 5: {
-			this.radioButtonHandicap5.setSelected(false);
+			this.radioButtonObstacle5.setSelected(false);
 			break;
 		}
 		case 6: {
-			this.radioButtonHandicap6.setSelected(false);
+			this.radioButtonObhstacle6.setSelected(false);
 			break;
 		}
 		case 7: {
-			this.radioButtonHandicap7.setSelected(false);
+			this.radioButtonObstacle7.setSelected(false);
 		}
 		}
 	}
@@ -410,7 +410,7 @@ public class MenuBar extends JMenuBar implements ActionListener {
 	public void setEnabledMenuOptions(boolean bool) {
 		if (bool) {
 			this.menuOptionsNiveau.setEnabled(true);
-			this.menuOptionsHandicap.setEnabled(true);
+			this.menuOptionsObstacle.setEnabled(true);
 		}
 	}
 }
