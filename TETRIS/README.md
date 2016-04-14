@@ -18,18 +18,28 @@ Exercice Design Pattern / Solid
 Application :
 Pour lancer le jeu on utilise la classe starter, qui a pour responsabilité d'appeler une nouvelle instance de la classe tetris.
 
-
-- Open / Close Responsability :
-Ce principe nous a permis mettre en place la création de pièces sans modifier les classes des tetriminos existants mais en créant un fichier propre à la pièce créée.
-
 public class Lanceur {
 public static void main(string[] args) {
 Jeu jeu = new Jeu("Tetris",230,300) ;
 jeu.start() ;
 }
 }
-•	Pourquoi avez-vous utilisé ce design pattern / principe ? Qu'est-ce que cela vous a apporté ? Et comment l'avez-vous appliqué ?
-La classe ci dessus à pour rôle de lancer le jeu. Le Design pattern Lock/Mutex: Méchanisme de Synchronisation public synchronized void ajoutClient(ThreadServeur t) { System.out.println("L''utilisateur " +t.getId() +" est maintenant connecté ..."); Serveur.clients.add(t); }
+
+- Open / Close Responsability :
+Ce principe nous a permis mettre en place la création de pièces sans modifier les classes des tetriminos existants mais en créant un fichier propre à la pièce créée.
+
+
+
+
+
+
+- Lock/Mutex: Méchanisme de Synchronisation 
+
+public synchronized void ajoutClient(ThreadServeur t) { System.out.println("L''utilisateur " +t.getId() +" est maintenant connecté ..."); Serveur.clients.add(t); }
+
+
+
+
 Nous avons utilisé MVC et swing pour la vue. 
 
 
