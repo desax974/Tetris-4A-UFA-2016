@@ -15,7 +15,7 @@ public class Tetris extends JFrame implements KeyListener {
 	public JLabel labelScore;
 	private JLabel labelLevel;
 	private JLabel labelLigne;
-	private MonCanvas canvas;
+	private Canvas canvas;
 	private NextPiece cps;
 
 	public Tetris() {
@@ -44,7 +44,7 @@ public class Tetris extends JFrame implements KeyListener {
 		this.cps = new NextPiece();
 		this.cps.setBounds(350, 45, 162, 162);
 		this.panel.add((Component) (this.cps));
-		this.canvas = new MonCanvas(this);
+		this.canvas = new Canvas(this);
 		this.canvas.setBounds(17, 13, 290, 482);
 		this.labelApercu = new JLabel();
 		this.labelApercu.setText("Next Piece");
@@ -74,7 +74,7 @@ public class Tetris extends JFrame implements KeyListener {
 		this.setVisible(true);
 	}
 
-	public MonCanvas getCanvas() {
+	public Canvas getCanvas() {
 		return this.canvas;
 	}
 

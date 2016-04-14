@@ -52,6 +52,7 @@ public class MenuBar extends JMenuBar implements ActionListener {
 	private JRadioButtonMenuItem radioButtonObstacle5;
 	private JRadioButtonMenuItem radioButtonObhstacle6;
 	private JRadioButtonMenuItem radioButtonObstacle7;
+	private JPanel about;
 
 	public MenuBar(Tetris tetris) {
 		obstacle = 0;
@@ -70,7 +71,7 @@ public class MenuBar extends JMenuBar implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		String commande = e.getActionCommand();
-		MonCanvas canvas = this.tetris.getCanvas();
+		Canvas canvas = this.tetris.getCanvas();
 		Game jeu = canvas.getJeu();
 		if (commande.equals("Nouvelle")) {
 			this.setEnabledMenuOptions(false);
@@ -173,10 +174,25 @@ public class MenuBar extends JMenuBar implements ActionListener {
 		} else if (commande.equals("Editer Nouvelle Pi\u00e8ce")) {
 			new PieceEdit(5, jeu);
 		} else if (commande.equals("A Propos...")) {
-			new About();
+			doAbout();
 		}
 	}
-
+    private void doAbout() {
+        if(about == null) setAboutPanel();
+        JOptionPane.showMessageDialog(this,about,"ABOUT", 
+                JOptionPane.PLAIN_MESSAGE);
+    }
+    private void setAboutPanel() {
+        about = new JPanel();
+        about.setLayout(new BoxLayout(about, BoxLayout.Y_AXIS));
+        JLabel jl = new JLabel("<HTML><B>Tetris 4A-CFA 2016</B></HTML>");
+        about.add(jl);
+        about.add(Box.createVerticalStrut(30));
+        
+        jl = new JLabel("<HTML>HAFOUD Mohammed Amine - DESCHASEAUX Ramaye Axel – LOUCARID Nadia</HTML>");
+        about.add(jl);
+    }
+    
 	public void menuAbout() {
 		this.menuAbout = new JMenu("A propos");
 		this.menuAbout.setMnemonic('a');
