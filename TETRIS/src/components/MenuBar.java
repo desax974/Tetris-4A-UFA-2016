@@ -82,7 +82,8 @@ public class MenuBar extends JMenuBar implements ActionListener {
 			canvas.stopThread();
 			this.itemPause.setEnabled(false);
 			this.itemDemarrer.setEnabled(true);
-		} else if (commande.equals("Play")) {
+		} else if (commande.equals("Redemarrer")) {
+			canvas.start();
 			this.itemPause.setEnabled(true);
 			this.itemDemarrer.setEnabled(false);
 		} else if (commande.equals("Quitter")) {
