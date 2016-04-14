@@ -35,13 +35,13 @@ Pour lancer le jeu on utilise la classe starter, qui a pour responsabilité d'ap
 Nous avons appliqué le principe SRP : SINGLE RESPONSABILITY PRINCIPLE 
 Un composant = une responsabilité: 
 
-package components;
+`package components;
 
 public class Starter {
 	public static void main(String[] args) {
 		new Tetris();
 	}
-}
+}`
 
 
 - Open / Close Responsability :
