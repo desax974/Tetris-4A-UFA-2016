@@ -1,5 +1,6 @@
 package components;
 
+import java.awt.Font;
 import java.awt.event.*;
 
 import javax.swing.*;
@@ -52,6 +53,8 @@ public class MenuBar extends JMenuBar implements ActionListener {
 	private JRadioButtonMenuItem radioButtonHandicap5;
 	private JRadioButtonMenuItem radioButtonHandicap6;
 	private JRadioButtonMenuItem radioButtonHandicap7;
+	private Font font;
+	private JPanel about;
 
 	public MenuBar(Tetris tetris) {
 		handicap = 0;
@@ -70,7 +73,7 @@ public class MenuBar extends JMenuBar implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		String commande = e.getActionCommand();
-		MonCanvas canvas = this.tetris.getCanvas();
+		Canvas canvas = this.tetris.getCanvas();
 		Game jeu = canvas.getJeu();
 		if (commande.equals("Nouvelle")) {
 			this.setEnabledMenuOptions(false);
@@ -172,19 +175,32 @@ public class MenuBar extends JMenuBar implements ActionListener {
 		} else if (commande.equals("Editer Nouvelle Pi\u00e8ce")) {
 			new PieceEdit(5, jeu);
 		} else if (commande.equals("A Propos...")) {
-			new About();
+			if(about == null) setAboutPanel();
+	        JOptionPane.showMessageDialog(this,about,"ABOUT", 
+	                JOptionPane.PLAIN_MESSAGE);
 		}
 	}
+    private void setAboutPanel() {
+        about = new JPanel();
+        about.setLayout(new BoxLayout(about, BoxLayout.Y_AXIS));
+        JLabel jl = new JLabel("<HTML><B>Tetris 4A UFA 2016</B></HTML>");
+        about.add(jl);
+        about.add(Box.createVerticalStrut(10));
 
+        
+        about.add(Box.createVerticalStrut(20));
+        
+        jl = new JLabel("<HTML>HAFOUD Mohammed Amine - DESCHASEAUX Ramaye Axel – LOUCARID Nadia (4A-CFA)</HTML>");
+        about.add(jl);
+        about.add(jl);
+    }
 	public void menuAbout() {
 		this.menuAbout = new JMenu("A propos");
 		this.menuAbout.setMnemonic('a');
 		this.menuAbout.setHorizontalAlignment(0);
 		this.menuAbout.setHorizontalTextPosition(0);
 		this.itemAPropos = new JMenuItem("A Propos...");
-		this.separator1 = new JSeparator();
 		this.menuAbout.add(this.itemAPropos);
-		this.menuAbout.add(this.separator1);
 		this.itemAPropos.addActionListener(this);
 	}
 
