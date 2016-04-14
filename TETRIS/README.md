@@ -2,12 +2,25 @@ PROJET TETRIS
 =============
 HAFOUD Mohammed Amine - DESCHASEAUX Ramaye Axel – LOUCARID Nadia (4A-CFA)
 
-Les consignes du jeu : 
-=======================
-- Ce Tetris pourra être joué seul mais aussi en mode multijoueur.
-- Pour jouer il faut utiliser les flèches pour tourner les pièces et les faire descendre dans l'endroit choisit. Dès qu'une ligne est cassée, le score s'incrémente.
+BUILD DU PROGRAMME 
+==================
+
+
+COMMENT JOUER :
+===============
+
+- Pour jouer il faut utiliser les flèches pour tourner les pièces et les faire descendre dans l'endroit choisit. Dès qu'une ligne est cassée (100 points) ainsi qu'à chaque tetrimino (10 pts), le score s'incrémente.
+
+
+- Ce Tetris peut être joué seul mais aussi en mode multijoueur :
+
+Menu : Option > 2 joueurs : J1 appel J2 avec l'adresse ip de J2, J2 attend l'appel >> Connexion établie
+Lors d'une partie en multijoueur, au bout de 10 lignes supprimmées l'adversaire obtiens un malus, qui est l'ajout d'1 ligne aléatoire malus 1.
+
+
 
 Exercice Design Pattern / Solid
+===============================
 
 
 •	Illustrez trois principes SOLID ou design pattern en utilisant vos propres classes.
