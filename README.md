@@ -9,11 +9,11 @@ Build
 Fonctionnalités
 ===============
 
-Interface Graphique
-Création de tetriminos
-Multijoueur (Client/Serveur)
-Scores (top 5 - Nb lignes)
-Niveaux - Obstacles
+- Interface Graphique
+- Création de tetriminos
+- Multijoueur (Client/Serveur)
+- Scores (top 5 - Nb lignes)
+- Niveaux - Obstacles
 
 
 Comment Jouer : 
@@ -28,7 +28,7 @@ Se déplacer à droite : Flèche droite
 Tourner la pièce : Flèche haute
 Accélerer la descente : Flèche bas
 
-	2. Mutlijoueur
+	2. Mutlijoueur :
 
 - Ce Tetris peut être joué seul mais aussi en mode multijoueur :
 
