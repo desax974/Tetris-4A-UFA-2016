@@ -8,7 +8,6 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
@@ -33,16 +32,16 @@ import data.dataClass;
 
 public class HighScoreFrame implements ActionListener {
 	/** Frame d'affichage. */
-	private static JFrame frame;
+	private JFrame frame;
 	/** Liste des noms des colonnes du tableau. */
 	@SuppressWarnings("unused")
-	private static String[] names;
+	private String[] names;
 	/** Tableau contenant tous les meilleurs scores. */
 	private Object[][] data;
 	/** Le nombre de scores enregistres. (entre 0 et 5). */
 	private int nbHightScore;
 	/** Le fichier d'acces du fichier des meilleurs */
-	private final static String nomFichier = "best-scores.txt";
+	private final String nomFichier = "best-scores.txt";
 	/** La colonne d'insertion d'un nouveau score. */
 	private int colNewScore;
 	/** La ligne d'insertion d'un nouveau score. */
@@ -383,7 +382,7 @@ public class HighScoreFrame implements ActionListener {
 	public void initData() {
 		InputStream fic = null; // Le fichier de lecture.
 		String sentence; // La phrase lue dans le fichier.
-		BufferedReader br = null;
+		BufferedReader br;
 
 		try { // Lecture du fichier.
 			fic = dataClass.class.getResourceAsStream(nomFichier);
@@ -437,9 +436,9 @@ public class HighScoreFrame implements ActionListener {
 	 * Sauvegarde des donnees dans un fichier.
 	 */
 	public void saveFichier() {
-		FileWriter fw = null;
+		FileWriter fw;
 		boolean finFichier = false;
-		PrintWriter pw = null;
+		PrintWriter pw;
 		try { // On ouvre le fichier en ecriture.
 			fw = new FileWriter(nomFichier);
 			/* On formate le flux d'ecriture. */

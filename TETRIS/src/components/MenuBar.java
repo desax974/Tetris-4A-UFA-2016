@@ -1,15 +1,26 @@
 package components;
 
-import java.awt.event.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-import javax.swing.*;
+import javax.swing.Box;
+import javax.swing.BoxLayout;
+import javax.swing.JCheckBoxMenuItem;
+import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JRadioButtonMenuItem;
+import javax.swing.JSeparator;
 
 import views.ConnectFrame;
 import views.HighScoreFrame;
 
 public class MenuBar extends JMenuBar implements ActionListener {
-	private static int obstacle;
-	private static int niveau;
+	private int obstacle;
+	private int niveau;
 	private Tetris tetris;
 	private JMenu menuJeu;
 	private JMenu menuOptions;

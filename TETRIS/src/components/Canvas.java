@@ -1,10 +1,15 @@
 package components;
 
-import java.awt.*;
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.MediaTracker;
+import java.awt.Toolkit;
 import java.awt.image.ImageObserver;
-import java.net.*;
 
-import javax.swing.*;
+import javax.swing.JComponent;
 
 import data.dataClass;
 
@@ -14,7 +19,6 @@ public class Canvas extends JComponent implements Runnable {
 	private Game game;
 	private int timer;
 	private Thread thread;
-	private Piece suivante;
 	private Tetris tetris;
 	private int niveau;
 

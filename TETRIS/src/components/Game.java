@@ -1,6 +1,8 @@
 package components;
 
 import java.awt.Graphics;
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -223,7 +225,7 @@ public class Game {
 					}
 					case 1: {
 						this.setSocket(null, false);
-						new JFrameMsg("Gagné!",
+						new JFrameMsg("Gagn\u00e9!",
 								"Bravo !! Vous avez vaincu votre adversaire !");
 						break;
 					}
@@ -303,22 +305,20 @@ public class Game {
 	public void setSocket(Socket socket, boolean prevenirLAutre) {
 		if (socket != null) {
 			try {
-				this.in = new DataInputStream(socket.getInputStream());
+				this.in = new DataInputStream(new BufferedInputStream (socket.getInputStream()));
 			} catch (IOException v0) {
 				try {
 					socket.close();
 				} catch (IOException v1) {
 				}
-				socket = null;
 			}
 			try {
-				this.out = new DataOutputStream(socket.getOutputStream());
+				this.out = new DataOutputStream(new BufferedOutputStream(socket.getOutputStream()));
 			} catch (IOException v2) {
 				try {
 					socket.close();
 				} catch (IOException v3) {
 				}
-				socket = null;
 			}
 		} else if (this.socket != null) {
 			try {

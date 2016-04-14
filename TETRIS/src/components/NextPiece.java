@@ -1,7 +1,10 @@
 package components;
 
-import java.awt.*;
-import javax.swing.*;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Graphics;
+
+import javax.swing.JComponent;
 
 public class NextPiece extends JComponent {
 	Dimension size;

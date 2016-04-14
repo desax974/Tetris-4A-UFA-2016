@@ -1,7 +1,8 @@
 package network;
 
-import java.io.*;
-import java.net.*;
+import java.io.IOException;
+import java.net.ServerSocket;
+import java.net.Socket;
 
 import views.ServeurFrame;
 

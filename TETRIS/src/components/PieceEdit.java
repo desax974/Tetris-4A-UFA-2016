@@ -1,8 +1,5 @@
 package components;
 
-import javax.swing.*;
-
-
 import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.event.ActionEvent;
@@ -17,6 +14,15 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFileChooser;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.UIManager;
 
 public class PieceEdit extends JPanel implements MouseListener, ActionListener {
 	private Matrix mat;
@@ -147,7 +153,6 @@ public class PieceEdit extends JPanel implements MouseListener, ActionListener {
 		try {
 			out.writeObject(mat);
 		} catch (Exception e) {
-			e.printStackTrace();
 			System.out.println("Impossible d'ecrire dans le flux !");
 		}
 		try {
@@ -172,6 +177,8 @@ public class PieceEdit extends JPanel implements MouseListener, ActionListener {
 		}
 		try {
 			this.mat = (Matrix) in.readObject();
+			setMatrix(this.mat);
+			
 		} catch (Exception v2) {
 			return false;
 		}
