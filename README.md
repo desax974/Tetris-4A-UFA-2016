@@ -53,13 +53,16 @@ Ce principe nous a permis mettre en place la création de pièces sans modifier 
 public synchronized void ajoutClient(ThreadServeur t) { System.out.println("L''utilisateur " +t.getId() +" est maintenant connecté ..."); Serveur.clients.add(t); }
 
 
-•	Pourquoi avez-vous utilisé ce design pattern / principe ? Qu'est-ce que cela vous a apporté ? Et comment l'avez-vous appliqué ?
-La classe ci dessus à pour rôle de lancer le jeu. Le Design pattern Lock/Mutex: Méchanisme de Synchronisation public synchronized void ajoutClient(ThreadServeur t) { System.out.println("L''utilisateur " +t.getId() +" est maintenant connecté ..."); Serveur.clients.add(t); }
-Nous avons utilisé 
-MVC : 
+Architecture :
+==============
 
-swing : 
+Nous avons composé notre projets sur une architecture MVC 
 
+Component : Composants du jeu 
+Figures : Tetriminos
+network : Jeu en réseau : Server / Client 
+views (bibliothèque swing) : Contenant les différentes vues à afficher
 
+Des tests ont été réalisés : Junit(Unitaire), CodePro(Audit, TestCases) 
 
 
