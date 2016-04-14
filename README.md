@@ -10,6 +10,10 @@ Les consignes du jeu :
 =======================
 - Pour jouer il faut utiliser les flèches pour tourner les pièces et les faire descendre dans l'endroit choisit. Dès qu'une ligne est cassée (100 points) ainsi qu'à chaque tetrimino (10 pts), le score s'incrémente.
 
+Se déplacer à gauche : Flèche gauche
+Se déplacer à droite : Flèche droite
+Tourner la pièce : Flèche haute
+Accélerer la descente : Flèche bas
 
 - Ce Tetris peut être joué seul mais aussi en mode multijoueur :
 
