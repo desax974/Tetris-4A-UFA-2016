@@ -382,7 +382,7 @@ public class HighScoreFrame implements ActionListener {
 	public void initData() {
 		InputStream fic = null; // Le fichier de lecture.
 		String sentence; // La phrase lue dans le fichier.
-		BufferedReader br;
+		BufferedReader br = null;
 
 		try { // Lecture du fichier.
 			fic = dataClass.class.getResourceAsStream(nomFichier);
@@ -436,10 +436,11 @@ public class HighScoreFrame implements ActionListener {
 	 * Sauvegarde des donnees dans un fichier.
 	 */
 	public void saveFichier() {
-		FileWriter fw;
+		// On ouvre le fichier en ecriture.
+		FileWriter fw = null;
 		boolean finFichier = false;
-		PrintWriter pw;
-		try { // On ouvre le fichier en ecriture.
+		PrintWriter pw = null;
+		try { 
 			fw = new FileWriter(nomFichier);
 			/* On formate le flux d'ecriture. */
 			pw = new PrintWriter(fw);

@@ -1,10 +1,14 @@
 PROJET TETRIS 
 =============
 ![alt tag](http://imageshack.com/a/img924/7203/qJFuV6.png)
-HAFOUD Mohammed Amine - DESCHASEAUX Ramaye Axel – LOUCARID Nadia (4A-CFA)
+
+- HAFOUD Mohammed Amine - DESCHASEAUX Ramaye Axel – LOUCARID Nadia (4A-CFA)
 
 Build 
 ==================
+- cd TETRIS/src/; javac Starter.java
+- java Starter
+
 
 Fonctionnalités
 ===============
