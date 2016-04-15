@@ -90,8 +90,7 @@ public class MenuBar extends JMenuBar implements ActionListener {
 			 
 			InputStream is = new BufferedInputStream(dataClass.class.getResourceAsStream("Tetrisa.mid"));
 			clip.setSequence(is);
-
-			
+			clip.setLoopCount(5);
 			
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
@@ -106,7 +105,7 @@ public class MenuBar extends JMenuBar implements ActionListener {
 		jeu = canvas.getJeu();
 		
 		if (commande.equals("Nouvelle")) {
-			this.setEnabledMenuOptions(false);
+			this.setEnabledMenuOptions(true);
 			jeu.nouveauJeu();
 			jeu.setObstacle(obstacle);
 			jeu.setNiveau(niveau);
@@ -413,9 +412,7 @@ public class MenuBar extends JMenuBar implements ActionListener {
 			this.radioButtonObstacle7.setSelected(false);
 		}
 		}
-		jeu.setObstacle(obstacle);
-		jeu.setNiveau(niveau);
-		canvas.repaint();
+
 	}
 
 	public void resetNiveau() {

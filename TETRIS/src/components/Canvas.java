@@ -29,43 +29,43 @@ public class Canvas extends JComponent implements Runnable {
 		this.MT = new MediaTracker((Component) (this));
 		try {			this.image[0] = Toolkit
 					.getDefaultToolkit()
-					.getImage( dataClass.class.getResource("tetris.png").getPath()
+					.getImage( dataClass.class.getResource("tetris.png")
 							);
 			this.image[1] = Toolkit
 					.getDefaultToolkit()
 					.getImage(
-							dataClass.class.getResource("tetris.png").getPath());
+							dataClass.class.getResource("tetris.png"));
 			this.image[2] = Toolkit
 					.getDefaultToolkit()
-					.getImage(dataClass.class.getResource("tetris.png").getPath());
+					.getImage(dataClass.class.getResource("tetris.png"));
 			this.image[3] = Toolkit
 					.getDefaultToolkit()
 					.getImage(
-							dataClass.class.getResource("tetris.png").getPath());
+							dataClass.class.getResource("tetris.png"));
 			this.image[4] = Toolkit
 					.getDefaultToolkit()
 					.getImage(
-							dataClass.class.getResource("tetris.png").getPath());
+							dataClass.class.getResource("tetris.png"));
 			this.image[5] = Toolkit
 					.getDefaultToolkit()
 					.getImage(
-							dataClass.class.getResource("tetris.png").getPath());
+							dataClass.class.getResource("tetris.png"));
 			this.image[6] = Toolkit
 					.getDefaultToolkit()
 					.getImage(
-							dataClass.class.getResource("tetris.png").getPath());
+							dataClass.class.getResource("tetris.png"));
 			this.image[7] = Toolkit
 					.getDefaultToolkit()
 					.getImage(
-							dataClass.class.getResource("tetris.png").getPath());
+							dataClass.class.getResource("tetris.png"));
 			this.image[8] = Toolkit
 					.getDefaultToolkit()
 					.getImage(
-							dataClass.class.getResource("tetris.png").getPath());
+							dataClass.class.getResource("tetris.png"));
 			this.image[9] = Toolkit
 					.getDefaultToolkit()
 					.getImage(
-							dataClass.class.getResource("tetris.png").getPath());
+							dataClass.class.getResource("tetris.png"));
 		} catch (Exception v0) {
 		}
 		this.MT.addImage(this.image[0], 0);
