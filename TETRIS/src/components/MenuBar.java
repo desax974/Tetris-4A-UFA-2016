@@ -2,7 +2,16 @@ package components;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 
+import javax.sound.midi.MidiSystem;
+import javax.sound.midi.Sequencer;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JCheckBoxMenuItem;
@@ -15,6 +24,7 @@ import javax.swing.JPanel;
 import javax.swing.JRadioButtonMenuItem;
 import javax.swing.JSeparator;
 
+import data.dataClass;
 import views.ConnectFrame;
 import views.HighScoreFrame;
 
@@ -58,7 +68,7 @@ public class MenuBar extends JMenuBar implements ActionListener {
 	private JRadioButtonMenuItem radioButtonObhstacle6;
 	private JRadioButtonMenuItem radioButtonObstacle7;
 	private JPanel about = null;
-
+	private Sequencer clip;
 	public MenuBar(Tetris tetris) {
 		obstacle = 0;
 		niveau = 1;
@@ -71,6 +81,20 @@ public class MenuBar extends JMenuBar implements ActionListener {
 		this.add(this.menuOptions);
 		this.add(this.menuEdition);
 		this.add(this.menuAbout);
+		AudioInputStream ais;
+		try {
+			clip = MidiSystem.getSequencer();
+			clip.open();
+			 
+			InputStream is = new BufferedInputStream(dataClass.class.getResourceAsStream("Tetrisa.mid"));
+			clip.setSequence(is);
+
+			
+			
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		
 	}
 
 	@Override
@@ -102,6 +126,15 @@ public class MenuBar extends JMenuBar implements ActionListener {
 				this.tetris.getLabelApercu().setVisible(false);
 				this.tetris.getCps().setVisible(false);
 			}
+			
+		} else if (commande.equals("Son")) {
+			if (this.checkBoxSon.getState()) {
+				clip.start();
+			} else {
+				clip.stop();
+			}
+			
+			
 		} else if (commande.equals("Niveau 1")) {
 			this.resetNiveau();
 			niveau = 1;
@@ -262,6 +295,7 @@ public class MenuBar extends JMenuBar implements ActionListener {
 		this.menuOptions.add(this.radioButton2Player);
 		this.menuOptions.add(new JSeparator());
 		this.menuOptions.add(this.itemBestScore);
+		this.checkBoxSon.addActionListener(this);
 		this.checkBoxVoirPiece.addActionListener(this);
 		this.itemBestScore.addActionListener(this);
 	}
