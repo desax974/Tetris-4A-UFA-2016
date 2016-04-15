@@ -32,6 +32,8 @@ public class MenuBar extends JMenuBar implements ActionListener {
 	private int obstacle;
 	private int niveau;
 	private Tetris tetris;
+	private Canvas canvas;
+	private Game jeu;
 	private JMenu menuJeu;
 	private JMenu menuOptions;
 	private JMenu menuOptionsNiveau;
@@ -100,8 +102,9 @@ public class MenuBar extends JMenuBar implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		String commande = e.getActionCommand();
-		Canvas canvas = this.tetris.getCanvas();
-		Game jeu = canvas.getJeu();
+		canvas = this.tetris.getCanvas();
+		jeu = canvas.getJeu();
+		
 		if (commande.equals("Nouvelle")) {
 			this.setEnabledMenuOptions(false);
 			jeu.nouveauJeu();
@@ -175,28 +178,28 @@ public class MenuBar extends JMenuBar implements ActionListener {
 			this.resetNiveau();
 			niveau = 10;
 			jeu.setNiveau(10);
-		} else if (commande.equals("Handicap 0")) {
+		} else if (commande.equals("Obstacle 0")) {
 			this.resetHandicap();
 			obstacle = 0;
-		} else if (commande.equals("Handicap 1")) {
+		} else if (commande.equals("Obstacle 1")) {
 			this.resetHandicap();
 			obstacle = 1;
-		} else if (commande.equals("Handicap 2")) {
+		} else if (commande.equals("Obstacle 2")) {
 			this.resetHandicap();
 			obstacle = 2;
-		} else if (commande.equals("Handicap 3")) {
+		} else if (commande.equals("Obstacle 3")) {
 			this.resetHandicap();
 			obstacle = 3;
-		} else if (commande.equals("Handicap 4")) {
+		} else if (commande.equals("Obstacle 4")) {
 			this.resetHandicap();
 			obstacle = 4;
-		} else if (commande.equals("Handicap 5")) {
+		} else if (commande.equals("Obstacle 5")) {
 			this.resetHandicap();
 			obstacle = 5;
-		} else if (commande.equals("Handicap 6")) {
+		} else if (commande.equals("Obstacle 6")) {
 			this.resetHandicap();
 			obstacle = 6;
-		} else if (commande.equals("Handicap 7")) {
+		} else if (commande.equals("Obstacle 7")) {
 			this.resetHandicap();
 			obstacle = 7;
 		} else if (commande.equals("1 Joueur")) {
@@ -301,7 +304,7 @@ public class MenuBar extends JMenuBar implements ActionListener {
 	}
 
 	public void menuOptionsHandicap() {
-		this.menuOptionsObstacle = new JMenu("Obstacle");
+		this.menuOptionsObstacle = new JMenu("Obstacles");
 		this.radioButtonObstacle0 = new JRadioButtonMenuItem("Obstacle 0");
 		this.radioButtonObstacle1 = new JRadioButtonMenuItem("Obstacle 1");
 		this.radioButtonOstacle2 = new JRadioButtonMenuItem("Obstacle 2");
@@ -410,6 +413,9 @@ public class MenuBar extends JMenuBar implements ActionListener {
 			this.radioButtonObstacle7.setSelected(false);
 		}
 		}
+		jeu.setObstacle(obstacle);
+		jeu.setNiveau(niveau);
+		canvas.repaint();
 	}
 
 	public void resetNiveau() {

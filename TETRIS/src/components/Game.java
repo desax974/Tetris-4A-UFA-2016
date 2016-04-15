@@ -296,6 +296,7 @@ public class Game {
 			}
 			++j;
 		}
+
 	}
 
 	public void setNiveau(int niveau) {
